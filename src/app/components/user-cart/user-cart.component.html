@@ -1,0 +1,24 @@
+<div class="icon">
+    <img src="../../../assets/images/shopping cart.png" style="height: 100px; width: 100px;">
+</div>
+
+<ul *ngFor="let o of userCart">
+    <mat-nav-list>
+        <a mat-list-item>
+            <span mat-line>{{o.orderAddress.name}}    :כתובת למשלוח   </span>
+            <span mat-line>{{o.orderTotalSum}}        :מחיר הזמנה</span>
+            
+           <button (click)="deleteFromCart(o._id)" class="deleteBtn" mat-raised-button color="warn"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M16 9v10H8V9h8m-1.5-6h-5l-1 1H5v2h14V4h-3.5l-1-1zM18 7H6v12c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7z"/></svg></button>
+
+        </a>
+    
+     
+    </mat-nav-list>
+  </ul>
+  <div *ngIf="userCart.length>0">
+    <button (click)="orderConfirmation()"  style="width: 100%;;"  mat-raised-button color="accent">סיים הזמנה והמשך לתשלום</button>
+  </div>
+  <div *ngIf="userCart.length==0">
+      <h1> עגלת הקניות שלך כרגע ריקה</h1>
+  </div>
+

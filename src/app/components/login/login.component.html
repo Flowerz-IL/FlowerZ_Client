@@ -1,0 +1,67 @@
+
+<div class="login-partial">
+
+  
+<button mat-raised-button color="primary" *ngIf=!loggedIn()  onclick="document.getElementById('id01').style.display='block'" style="width:auto; ">התחבר</button>
+<!-- <div id="id02" class="cartModal cartModalContent animate" *ngIf=loggedIn()>
+  <app-user-cart></app-user-cart>
+</div> -->
+<div class="dropdown">
+<button mat-raised-button color="primary" *ngIf=loggedIn() class="dropbtn">{{currentUser.userName}}</button>
+<div class="dropdown-content">
+  <a (click)=logoutUser()><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"/><path d="M17 7l-1.41 1.41L18.17 11H8v2h10.17l-2.58 2.58L17 17l5-5zM4 5h8V3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8v-2H4V5z"/></svg> התנתק</a>
+  <a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"/><path d="M9 11.75c-.69 0-1.25.56-1.25 1.25s.56 1.25 1.25 1.25 1.25-.56 1.25-1.25-.56-1.25-1.25-1.25zm6 0c-.69 0-1.25.56-1.25 1.25s.56 1.25 1.25 1.25 1.25-.56 1.25-1.25-.56-1.25-1.25-1.25zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8 0-.29.02-.58.05-.86 2.36-1.05 4.23-2.98 5.21-5.37C11.07 8.33 14.05 10 17.42 10c.78 0 1.53-.09 2.25-.26.21.71.33 1.47.33 2.26 0 4.41-3.59 8-8 8z"/></svg> נהל חשבון</a>
+  <a (click)=openBottomSheet()> <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"/><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg> עגלת הקניות </a>
+</div>
+</div>
+</div>
+
+<div id="id01" class="modal modal-content animate" *ngIf=!loggedIn() >
+  <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+
+  <mat-tab-group style="align-items: right;">
+    <mat-tab label="התחברות"> <div class="imgcontainer">
+      <img src="../../../assets/images/login1.png" alt="Avatar" class="avatar">
+    </div>
+
+    <div class="container" style="max-width: 500px;">
+      <h3 class="mb-3 mt-5 text-center">התחבר</h3>
+    
+      <div class="form-group">
+        <input type="text" [(ngModel)]="userObj.userEmail" class="form-control" placeholder="אימייל">
+        
+      </div>
+      <div class="form-group">
+          <input type="password" [(ngModel)]="userObj.userPassword" class="form-control" placeholder="סיסמא">
+        </div>
+        <div>
+          <div class="error">
+            {{errorMessage}}
+        </div>
+    
+      <div class="form-group">
+        <button mat-raised-button (click)="signIn()">שלח</button>
+      </div>
+    
+    </div>
+</div>
+</mat-tab>
+    <mat-tab label="הרשמה">  
+
+      <app-register></app-register>
+    </mat-tab>
+  </mat-tab-group>
+    
+
+
+<script>
+// Get the modal
+var modal = document.getElementById('id01');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+</script>

@@ -1,0 +1,22 @@
+*{
+    overflow: visible; /* Enable scroll if needed */
+
+}
+ul{
+    display: block;
+}
+a:hover{
+    cursor: default;
+
+    ;
+}
+.icon{
+    text-align: center;
+}
+.deleteBtn{
+    border-radius: 50px;
+}
+h1{
+    text-align: center;
+    font-weight: bold;
+}

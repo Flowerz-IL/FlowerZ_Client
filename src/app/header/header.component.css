@@ -1,23 +1,21 @@
 * {
   margin: 0;
   padding: 0;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  font-size: 20px;
-  font-weight: bold;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  
 }
 
 ul {
-  float: none;
+  float: left;
   list-style-type: none;
-  margin-top: 40px;
-  border: 1px solid grey;
-  text-align: center;
+  font-size: 20px;
+
 }
 
 ul li {
-  display: inline-block;
   margin-top: 10px;
   margin-bottom: 10px;
+  float: left;
 }
 
 ul li a {
@@ -25,13 +23,13 @@ ul li a {
   color: black;
   padding: 5px 20px;
   transition: 0.6 ease;
-  border: 1px solid #fff transparent;
 }
 
 ul li a:hover {
-  border-bottom: 2px solid black;
-}
+  color: red;
+  transition: 0.3s ease-out;
 
+}
 .logo {
   margin-top: 20px;
   width: 400px;
@@ -40,4 +38,22 @@ ul li a:hover {
 
 .main {
   margin: auto;
+}
+.login-partial{
+  float: right;
+  display: inline-block;
+}
+header{
+  display: inline-block;
+  width: 70%;
+  text-align: center;
+}
+.img{
+  margin:auto;
+
+}
+.find-meBtn{
+  border: 1px;
+  border-radius: 10px;
+  border-color: pink;
 }

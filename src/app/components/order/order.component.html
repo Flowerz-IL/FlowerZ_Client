@@ -1,0 +1,21 @@
+<h1>הוסף לסל הקניות</h1>
+<h2>בחר כתובת למשלוח</h2>
+
+
+<ul *ngFor="let a of userAddresses">
+    <mat-nav-list>
+        <a mat-list-item style="text-align: center;margin-right: 30px;" (click)="addBouquetToCart(a._id)">
+            <span mat-line>{{a.name}}    :שם הכתובת   </span>
+            <span mat-line>{{a.city}}    :עיר המשלוח</span>
+            <span mat-line>{{a.street}}  :רחוב המשלוח</span>
+            <span mat-line>{{a.houseNumber}} :מספר בית</span>
+        </a>
+    </mat-nav-list>
+</ul>
+<mat-nav-list>
+    <a mat-list-item style="text-align: center;margin-right: 30px;">
+        <span mat-line><button (click)="openAddressSheet()" mat-stroked-button style="border-radius: 50px;"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"/><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg></button>
+        </span>
+    </a>
+
+</mat-nav-list>

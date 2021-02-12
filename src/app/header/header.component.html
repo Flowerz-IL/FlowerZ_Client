@@ -1,16 +1,25 @@
+
 <header>
-    <div class="logo">
-        Logo
-    </div>
+    
+        <ul>
+
+            <li><a [routerLink] ="['/search']">צור קשר </a></li>
+            <li><a href ="Home">איך זה עובד </a></li>
+            <li><a [routerLink] ="['/find-me']" class="find-meBtn" style="border:1px solid; border-color:hotpink">מצא לי זר</a></li>
+            <li><a href ="Home">הפרחים שלנו </a></li>
+            <li><a [routerLink] ="['/home']">בית </a></li>
+         
+        
+        </ul>
+
+            <img class="img" src="../../assets/images/MainLogo.png" style="width: 240px;">
+    
 </header>
+<div class="login-partial">
+    <app-login></app-login>
+</div>
 
 <div class="main">
-<ul>
-    <li><a href ="Home">צור קשר </a></li>
-    <li><a href ="Home">איך זה עובד </a></li>
-    <li><a href ="Home">בלוג </a></li>
-    <li><a href ="Home">הפרחים שלנו </a></li>
-    <li><a href ="home">בית </a></li>
-</ul>
+
 </div>
 
