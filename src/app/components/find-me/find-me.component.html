@@ -1,0 +1,162 @@
+
+<!-- <button (click)="getFlowerBouquetsFromServer()">Get all flowers</button>
+ -->
+ {{bouquetId}}
+ <div>
+   <div class="img-container">
+     <div class="lines">
+       <div class="img-first">
+        <img class="adviser" src="../../../assets/images/profilePicture1.jpg">
+
+       </div>
+     </div>
+ </div>
+ </div>
+<div *ngIf="counter==0">
+    <div>
+      <h1>היי! אני גיא, וברוך הבא לפלטפורמת בחירת הזרים שלנו</h1>
+      <h3> אעזור לכם לבצע בחירה מהירה, יעילה שמתאימה בדיוק לכם</h3>
+
+    </div>
+
+    <button class="startBtn" (click)="changePosition('move')">בואו נתחיל</button>
+
+
+</div>
+<div *ngIf="counter==1">
+
+
+    <div class="container" style="width: 30%;" >
+        <h1>תחילה,בחר את סוג האירוע</h1>
+        <p>אלה הם האירועים שאנו מתמחים בהם, הסר/י מה שלא רלוונטי בענייך</p>
+        <ul class="w3-ul w3-card-4">
+          <li class="w3-bar">
+            <span (click)="arrangeOccasions('BIRTHDAY')" onclick="this.parentElement.style.display='none'" class="w3-bar-item w3-button w3-white w3-xlarge w3-right">×</span>
+            <img src="../../../assets/images/birthdayPicture.png" class="eventPicture w3-bar-item w3-hide-small" >
+            <div class="item">
+              <span class="w3-large">יום הולדת</span><br>
+            </div>
+          </li>
+      
+          <li class="w3-bar">
+            <span (click)="arrangeOccasions('WEEKEND_VIBES')" onclick="this.parentElement.style.display='none'" class="w3-bar-item w3-button w3-white w3-xlarge w3-right">×</span>
+            <img src="../../../assets/images/weekendPicture.png" class="eventPicture w3-bar-item  w3-hide-small" >
+            <div class="item">
+              <span class="w3-large">סוף שבוע</span><br>
+            </div>
+          </li>
+      
+          <li class="w3-bar">
+            <span (click)="arrangeOccasions('APOLOGIZE')"  onclick="this.parentElement.style.display='none'" class="w3-bar-item w3-button w3-white w3-xlarge w3-right">×</span>
+            <img src="../../../assets/images/ApologyFlower.jpg" class="eventPicture w3-bar-item w3-hide-small" >
+            <div class="item">
+              <span class="w3-large">התנצלות</span><br>
+            </div>
+          </li>
+          <li class="w3-bar">
+            <span (click)="arrangeOccasions('ROMANTIC')" onclick="this.parentElement.style.display='none'" class="w3-bar-item w3-button w3-white w3-xlarge w3-right">×</span>
+            <img src="../../../assets/images/romanticPicture.png" class="eventPicture w3-bar-item  w3-hide-small">
+            <div class="item">
+              <span class="w3-large">רומנטיקה</span><br>
+            </div>
+          </li>
+          <li class="w3-bar">
+            <span (click)="arrangeOccasions('CELEBRATE')" onclick="this.parentElement.style.display='none'" class="w3-bar-item w3-button w3-white w3-xlarge w3-right">×</span>
+            <img src="../../../assets/images/partyPicture.jpg" class="eventPicture w3-bar-item  w3-hide-small" >
+            <div class="item">
+              <span class="w3-large">חגיגה</span><br>
+            </div>
+          </li>
+          <li class="w3-bar">
+            <span (click)="arrangeOccasions('CALM')" onclick="this.parentElement.style.display='none'" class="w3-bar-item w3-button w3-white w3-xlarge w3-right">×</span>
+            <img src="../../../assets/images/calmPicture.jpg" class="eventPicture w3-bar-item  w3-hide-small" style="width: 100px; height: 75px;">
+            <div class="item">
+              <span class="w3-large">רגוע</span><br>
+            </div>
+          </li>
+          <li class="w3-bar">
+            <span (click)="arrangeOccasions('PRETTY_HOUSE')" onclick="this.parentElement.style.display='none'" class="w3-bar-item w3-button w3-white w3-xlarge w3-right">×</span>
+            <img src="../../../assets/images/homePicture.jpg" class=" eventPicture w3-bar-item  w3-hide-small" >
+            <div class="item">
+              <span class="w3-large">סתם לבית</span><br>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <button class="startBtn" (click)="onClick()">הבא</button>
+
+</div>
+
+<div *ngIf="counter==2">
+<h1>מעולה, אשמח אם תגיד לי מהו המחיר שהיית מוכן להשקיע</h1>
+<mat-slider [(ngModel)]="rangeVal" thumbLabel max="400"></mat-slider>
+
+<div><h1> {{rangeVal}}בשקלים, הייתי מוכן להוציא באיזור ה</h1></div>
+<button class="startBtn" (click)="onClick()">הבא</button>
+
+</div>
+
+<div *ngIf="counter==3">
+  <h1>כמעט סיימנו! מהם שני הצבעים האהובים על הנמען</h1>
+  <mat-form-field appearance="fill">
+    <mat-label>צבע ראשון</mat-label>
+    <mat-select [(value)]="selectedColor">
+      <mat-option value="red">אדום</mat-option>
+      <mat-option  value="blue">כחול</mat-option>
+      <mat-option  value="green">ירוק</mat-option>
+      <mat-option value="yellow">צהוב</mat-option>
+      <mat-option value="pink">ורוד</mat-option>
+
+    </mat-select>
+  </mat-form-field>
+  <br>
+  <mat-form-field appearance="fill">
+    <mat-label>צבע שני</mat-label>
+    <mat-select [(value)]="selectedColor2">
+      <mat-option value="red">אדום</mat-option>
+      <mat-option  value="blue">כחול</mat-option>
+      <mat-option  value="green">ירוק</mat-option>
+      <mat-option value="yellow">צהוב</mat-option>
+      <mat-option value="pink">ורוד</mat-option>
+
+    </mat-select>
+  </mat-form-field>
+  <br>
+
+  <button class="startBtn" (click)="chosenBouquets()">הצע לי זר</button>
+</div>
+<div *ngIf="counter==4">
+  <mat-spinner style="margin:0 auto; padding: 20px 20px 2px 20px;" 
+  mode="indeterminate"></mat-spinner> <br>
+<h1> שנייה לפני שמסיימים, אני ממליץ לעקוב אחרינו ברשתות החברתיות בשביל להיות מעודכן בהצעות הטובות ביותר שלנו</h1>
+<button class="startBtn" (click)="onClick()">תודה על ההצעה</button>
+
+</div>
+<div *ngIf="counter==5" style="margin: 0 auto;">
+ 
+  <div *ngIf="filteredData.length==0">
+    <h1>היי, לצערי לא מצאתי משהו שמתאים לבקשות שלך, אתה מוזמן להתסכל בקטלוג שלנו או להתחיל מהתחלה</h1>
+  </div>
+  <div *ngIf="filteredData.length!=0">
+    <h1> מצוין!! הנה מה שמצאתי שיכול להתאים לך, אם לא אהבת את ההצעות שלי, תרגיש חופשי ללכת לקטלוג שלנו לנסות בעצמך או לתת לי עוד הזדמנות</h1>
+
+  </div>
+  <ul *ngFor="let d of filteredData"   style="display: inline-block;">
+
+    <div class="w3-container" style="white-space: nowrap; display:inline-block;height: 400px;
+    width: 280px;">    
+      <div class="w3-card-4" style="width:300px">
+        <img src="{{d.bouquetImageUrl}}" alt="Alps" style="width:100%">
+        <div class="w3-container w3-center">
+          <p>{{d.bouquetName}}</p>
+          <p>{{d.bouquetPrice}}ש"ח</p>
+          <button (click)="chosenBouquet(d._id,d.bouquetPrice)" mat-raised-button color="accent">הוסף לסל</button>
+
+        </div>
+      </div>
+    </div>
+    
+  </ul>
+  <br><br><br>
+  <button class="startBtn" (click)="reset()">התחל מחדש</button>
+</div>

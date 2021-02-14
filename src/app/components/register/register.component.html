@@ -1,0 +1,31 @@
+
+<div class="container" style="max-width: 500px;">
+
+  
+    <div class="form-group">
+   <input type="text" [(ngModel)]="userObj.userEmail" class="form-control" placeholder="אימייל">
+    </div>
+    <div class="form-group">
+        <input type="text" [(ngModel)]="userObj.userPassword" class="form-control" placeholder="סיסמא">
+      </div>
+      <div class="form-group">
+        <input type="text" [(ngModel)]="userObj.userFirstName" class="form-control" placeholder="שם פרטי">
+      </div>
+    <div class="form-group">
+      <input type="text" [(ngModel)]="userObj.userLastName" class="form-control" placeholder="שם משפחה ">
+    </div>
+  
+    <div class="form-group">
+      <input type="text" [(ngModel)]="userObj.userPhoneNumber" class="form-control" placeholder="מספר פלאפון">
+    </div>
+  
+    <div class="form-group">
+      <button class="btn btn-success btn-lg btn-block" (click)="addUser(userObj)">הרשם עכשיו</button>
+    </div>
+    
+    <div class="error">
+      {{errorMessage}}
+  </div>
+
+
+  </div>

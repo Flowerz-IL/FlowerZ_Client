@@ -1,0 +1,86 @@
+*{
+    text-align: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.startBtn{
+    font-size: 25px;
+    padding: 14px 40px;
+    border-radius: 5px;
+    background-color: white;
+    border: 2px solid pink; 
+    transition: 0.7s;
+
+
+}
+div{
+    padding: 10px;
+    
+}
+button{
+    margin: 10px 10px 10px 10px;
+
+}
+.startBtn:hover{
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+.container{
+    margin: auto;
+}
+.adviser{
+ width: 150px;
+ border-radius: 50%;
+}
+.eventPicture{
+    width:95px;
+    height: 70px;
+    border-radius: 10%;
+}
+.w3-large{
+
+}
+.item{
+    padding: 20px 40px;
+    
+}
+mat-slider{
+    width: 300px;
+}
+.card{
+    display:inline-block;
+    display: flex;
+    
+}
+span{
+    display: inline-block;
+}
+img-container{
+    position: relative;
+}
+.lines{
+    width: 100%;
+    height: 45%;
+    position: relative;
+
+}
+.lines::after , .lines::before{
+    content: '';
+    position: absolute;
+    margin: auto;
+    height: 2px;
+    background: lightgrey;
+    width: 45%;
+    top: 45%;
+    z-index: -4;
+    
+}
+.lines::after{
+    left: 0;
+}
+.lines::before{
+    right: 0;
+}
+.w3-card-4:hover{
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+
+}

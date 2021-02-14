@@ -1,0 +1,30 @@
+<h1 class="mb-3 mt-5 text-center">הוסף כתובת</h1>
+<h2> כתובת זו נשמרת ותוכל להשתמש בה להזמנות הבאות</h2>
+<form>
+    <div class="container" style="max-width: 500px;">
+        <div class="form-group">
+            <input pattern="\d*" title="Numbers only, please." type="text" [(ngModel)]="userAddress.name" class="form-control" placeholder="שם הכתובת" required name="name">
+          </div>
+          <div class="form-group">
+            <input type="text"  [(ngModel)]="userAddress.city"  class="form-control" placeholder="עיר" required name="city">
+          </div>
+          <div class="form-group">
+            <input type="text" [(ngModel)]="userAddress.street"  class="form-control" placeholder="רחוב" required name="street">
+          </div>
+          <div class="form-group">
+            <input type="text" [(ngModel)]="userAddress.houseNumber"  class="form-control" placeholder="מספר בית" required name="houseNumber">
+          </div>
+          <div class="form-group">
+            <input type="number"  [(ngModel)]="userAddress.floorNumber"  class="form-control" placeholder="מספר קומה" required name="floorNumber">
+          </div>
+          <div class="form-group">
+            <input type="number" [(ngModel)]="userAddress.aptNumber"   class="form-control" placeholder="מספר דירה" required name="aptNumber">
+          </div>
+          <button type="submit" (click)="addAddressAndBouquetToCart()" mat-raised-button color="accent">הוסף כתובת והוסף זר לסל</button>
+
+          <div class="error">
+            {{errorMessage}}
+        </div>
+
+    </div>
+
