@@ -7,6 +7,7 @@ import {Address} from '../models/userAddress';
 
 import {Router} from '@angular/router'
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
+import { OrdersService } from './orders.service';
 @Injectable({
   providedIn: 'root'
 })
@@ -17,9 +18,11 @@ export class UsersService {
   loginError=new BehaviorSubject<string>("");
   registerError=new BehaviorSubject<string>("");
   userAddresses:Address[];
+  userOrders:any[];
   //private usersRegisterUrl=environment.usersRegisterUrl;
-  constructor(private http :HttpClient, private router:Router) {
+  constructor(private http :HttpClient, private router:Router,private OrderService:OrdersService) {
     this.userAddresses=[];
+    this.userOrders=[];
    }
 
   baseUrl= 'http://localHost:8080/api/users';
@@ -82,6 +85,7 @@ export class UsersService {
     })
     return this.userAddresses;
   }
+
 
 
   addUser(user:User) {

@@ -1,16 +1,14 @@
 body{
-    background: url("../../../assets/images/Background.jpg");
-    
+    background: none;
 }
 .first-container{
     width: 100%;
-    height: 600px;
-    background: url("../../../assets/images/Background.jpg");
     padding: 100px 100px 100px 100px;
     text-align: center;
     font-size: x-large;
     font-weight: bold;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    
 }
 .firstBtn{
     width: max-content;
@@ -24,12 +22,12 @@ body{
 }
 .second-container{
     font-size: 100px;
+    
     width: 100%;
-    height: 600px;
-    padding: 100px 100px 100px 100px;
     text-align: center;
     font-size: x-large;
     font-weight: bold;
+    justify-self: unset;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 .row{

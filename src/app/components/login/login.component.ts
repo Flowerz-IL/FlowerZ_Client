@@ -1,10 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { UsersService } from '../../services/users.service'
-import { Injectable } from '@angular/core';
-import { ReturnStatement } from '@angular/compiler';
-import { User } from 'src/app/models/user';
+
 import { MatBottomSheet } from '@angular/material/bottom-sheet';
 import { UserCartComponent } from '../user-cart/user-cart.component';
+import { OrderHistoryComponent } from '../order-history/order-history.component';
 
 @Component({
   selector: 'app-login',
@@ -67,4 +66,9 @@ export class LoginComponent implements OnInit {
   showUserCart(){
     this.showCart=!this.showCart;
   }
+
+  openOrderHistory(){
+    this._bottomSheet.open(OrderHistoryComponent);
+  }
+
 }

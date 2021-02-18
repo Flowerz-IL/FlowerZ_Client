@@ -1,0 +1,22 @@
+<div class="icon">
+    <img src="../../../assets/images/OrderHistory.png" style="height: 100px; width: 100px;">
+    <h1>היסטורית ההזמנות שלי</h1>
+    
+</div>
+<table class="table table-light table-striped">
+    <tbody *ngFor="let o of userOrders">
+        <tr>
+            <td>
+            </td>
+            <td>
+                {{o.orderTotalSum}} : מחיר ההזמנה
+            </td>
+            <td>
+               {{o.orderAddress.street}},{{o.orderAddress.city}}: כתובת המשלוח
+            </td>
+            <td>
+                {{o.orderCreationDate}}: תאריך הזמנה
+            </td>
+        </tr>
+    </tbody>
+</table> 

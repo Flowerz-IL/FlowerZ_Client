@@ -16,6 +16,12 @@ export class FlowerBouquetService {
     return this.http.get<any>(this.flowerBouquetsUrl);
   }
 
+  groupByFlowersBouquets():Observable<FlowerBouquet[]>{
+        return this.http.get<any>(this.flowerBouquetsUrl+"/group-by-size");
+
+
+  }
+
   getFlowerBouquet(id:number):Observable<FlowerBouquet>{
     const url= `${this.flowerBouquetsUrl}/${id}`;
     return this.http.get<FlowerBouquet>(url);
