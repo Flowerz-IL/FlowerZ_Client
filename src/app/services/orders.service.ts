@@ -15,11 +15,11 @@ export class OrdersService {
   currentBouquetId=new BehaviorSubject<any>("");
   currentBouquetPrice=new BehaviorSubject<any>(0);
   baseUrl= 'http://localHost:8080/api/orders';
-
+  Orders:Order[];
 
   constructor(private http :HttpClient, private router:Router) {
     this.userCart=[];
-
+    this.Orders=[];
   }
 
 
@@ -58,6 +58,34 @@ export class OrdersService {
     return this.userCart;
   }
 
+
+  getAllOrders(): Order[]{
+    this.Orders=[];
+    this.http.get<any>(this.baseUrl).subscribe((data:any)=>{
+      data.forEach((element:any) => {
+      this.Orders.push(element);        
+      });
+    });
+    return this.Orders;
+     
+  }
+  getUserOrders(): Order[]{
+    this.Orders=[];
+    this.http.get<any>(this.baseUrl).subscribe((data:any)=>{
+      data.forEach((element:any) => {
+        if(element.userId==localStorage.getItem('UserId'))
+        {
+        
+            this.Orders.push(element);
+            console.log(element);
+          
+        }
+       });
+     
+        });
+    return this.Orders;
+     
+  }
 
   addOrderToCart(userId:String,bouquetId:String,bouquetPrice:number,address:Address){
     

@@ -78,8 +78,6 @@ export class FindMeComponent implements OnInit  {
     this.OrderService.currentBouquetPrice.next(bouquetPrice);
     this.openOrderSheet();
 
-
-
   }
   chosenBouquets(){
     this.counter++;
@@ -99,7 +97,6 @@ export class FindMeComponent implements OnInit  {
       
     })
     console.log(this.filteredData);
-  
   }
 
   changePosition(newPosition:string){

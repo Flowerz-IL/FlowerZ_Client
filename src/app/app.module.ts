@@ -30,6 +30,13 @@ import { OrderPaymentComponent } from './components/order-payment/order-payment.
 import { AddressRegisterationComponent } from './components/address-registeration/address-registeration.component';
 import { HomeComponent } from './components/home/home.component';
 import { AboutUsComponent } from './components/about-us/about-us.component';
+import { OrderHistoryComponent } from './components/order-history/order-history.component';
+import { HowItWorksComponent } from './components/how-it-works/how-it-works.component';
+import {MatStepperModule} from '@angular/material/stepper';
+import { CatalogComponent } from './components/catalog/catalog.component';
+import { FilterPipeModule } from 'ngx-filter-pipe';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 
 @NgModule({
   declarations: [
@@ -48,6 +55,9 @@ import { AboutUsComponent } from './components/about-us/about-us.component';
     AddressRegisterationComponent,
     HomeComponent,
     AboutUsComponent,
+    OrderHistoryComponent,
+    HowItWorksComponent,
+    CatalogComponent,
   ],
   imports: [
     BrowserModule,
@@ -64,7 +74,10 @@ import { AboutUsComponent } from './components/about-us/about-us.component';
     MatBottomSheetModule,
     MatCardModule,
     MatListModule,
-    MatIconModule
+    MatIconModule,
+    MatStepperModule,
+    FilterPipeModule,
+    NgbModule
     
   ],
   providers: [

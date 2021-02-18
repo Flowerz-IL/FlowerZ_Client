@@ -1,0 +1,88 @@
+
+<div class="title">
+    <p> ברוכים הבאים לעמוד הקטלוג</p>
+    <h1>כאן תוכלו למצוא את מגוון הזרים שלנו</h1>
+    <h2> לנוחיותכם, הזרים מאורגנים לפי גודל . זהו אחד הפרמטרים החשובים בבחירת זר</h2>
+
+<br><br>
+  </div>
+    <ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel">
+      <ngb-panel title="זרים גדולים">
+        <ng-template ngbPanelContent>
+         <ul *ngFor="let d of LargeBouquetsData">
+           <ul *ngFor="let b of d.bouquetID;  let i = index" [attr.data-index]="i"  style="display: inline-block;">
+            <div class="w3-container" style="white-space: nowrap;margin-top:10px;display:inline-block;height:400px; width: 280px;">    
+              <div class="w3-card-8" style="width:200px;    box-sizing: border-box;">
+                <img src="{{d.bouquetsImageUrls[i]}}" alt="Alps" style="width:100%;height: 200px; border-radius: 10px;">
+                <div class="w3-container w3-center">
+                  <p>{{d.bouquetsNames[i]}}</p>
+                  <p>{{d.bouquetsPrices[i]}}ש"ח</p>
+                  <button (click)="chosenBouquet(d.bouquetID[i],d.bouquetsPrices[i])" mat-raised-button color="accent">הוסף לסל</button>
+        
+                </div>
+              </div>
+            </div>
+           </ul>
+         </ul>
+        </ng-template>
+      </ngb-panel>
+      <ngb-panel title="זרים בינוניים">
+        
+        <ng-template ngbPanelContent>
+          <ul *ngFor="let d of MediumBouquetsData">
+            <ul *ngFor="let b of d.bouquetID;  let i = index" [attr.data-index]="i"  style="display: inline-block;">
+             <div class="w3-container" style="white-space: nowrap;margin-top:10px;display:inline-block;height:400px; width: 280px;">    
+               <div class="w3-card-8" style="width:200px;    box-sizing: border-box;">
+                 <img src="{{d.bouquetsImageUrls[i]}}" alt="Alps" style="width:100%;height: 200px; border-radius: 10px;">
+                 <div class="w3-container w3-center">
+                   <p>{{d.bouquetsNames[i]}}</p>
+                   <p>{{d.bouquetsPrices[i]}}ש"ח</p>
+                   <button (click)="chosenBouquet(d.bouquetID[i],d.bouquetsPrices[i])" mat-raised-button color="accent">הוסף לסל</button>
+         
+                 </div>
+               </div>
+             </div>
+            </ul>
+          </ul>
+        </ng-template>
+      </ngb-panel>
+      <ngb-panel title="זרים ענקיים" >
+        <ng-template ngbPanelContent>
+          <ul *ngFor="let d of hugeBouquetsData">
+            <ul *ngFor="let b of d.bouquetID;  let i = index" [attr.data-index]="i"  style="display: inline-block;">
+             <div class="w3-container" style="white-space: nowrap;margin-top:10px;display:inline-block;height:400px; width: 280px;">    
+               <div class="w3-card-8" style="width:200px;    box-sizing: border-box;">
+                 <img src="{{d.bouquetsImageUrls[i]}}" alt="Alps" style="width:100%;height: 200px; border-radius: 10px;">
+                 <div class="w3-container w3-center">
+                   <p>{{d.bouquetsNames[i]}}</p>
+                   <p>{{d.bouquetsPrices[i]}}ש"ח</p>
+                   <button (click)="chosenBouquet(d.bouquetID[i],d.bouquetsPrices[i])" mat-raised-button color="accent">הוסף לסל</button>
+         
+                 </div>
+               </div>
+             </div>
+            </ul>
+          </ul>
+        </ng-template>
+      </ngb-panel>
+      <ngb-panel title="זרים קטנים" >
+        <ng-template ngbPanelContent>
+          <ul *ngFor="let d of smallBouquetsData">
+            <ul *ngFor="let b of d.bouquetID;  let i = index" [attr.data-index]="i"  style="display: inline-block;">
+             <div class="w3-container" style="white-space: nowrap;margin-top:10px;display:inline-block;height:400px; width: 280px;">    
+               <div class="w3-card-8" style="width:200px;    box-sizing: border-box;">
+                 <img src="{{d.bouquetsImageUrls[i]}}" alt="Alps" style="width:100%;height: 200px; border-radius: 10px;">
+                 <div class="w3-container w3-center">
+                   <p>{{d.bouquetsNames[i]}}</p>
+                   <p>{{d.bouquetsPrices[i]}}ש"ח</p>
+                   <button (click)="chosenBouquet(d.bouquetID[i],d.bouquetsPrices[i])" mat-raised-button color="accent">הוסף לסל</button>
+         
+                 </div>
+               </div>
+             </div>
+            </ul>
+          </ul>
+        </ng-template>
+      </ngb-panel>
+    </ngb-accordion>
+
