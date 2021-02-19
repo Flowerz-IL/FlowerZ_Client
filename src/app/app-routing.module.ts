@@ -1,11 +1,13 @@
 import { Component, NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AboutUsComponent } from './components/about-us/about-us.component';
+import { BouquetPageComponent } from './components/bouquet-page/bouquet-page.component';
 import { CatalogComponent } from './components/catalog/catalog.component';
 import { FindMeComponent } from './components/find-me/find-me.component';
 import { HomeComponent } from './components/home/home.component';
 import { HowItWorksComponent } from './components/how-it-works/how-it-works.component';
 import { LoginComponent } from './components/login/login.component';
+import { ManageAccountComponent } from './components/manage-account/manage-account.component';
 import { RegisterComponent } from './components/register/register.component';
 import { UserCartComponent } from './components/user-cart/user-cart.component';
 import { ProviderJoinComponent } from './provider-join/provider-join.component';
@@ -19,7 +21,9 @@ const routes: Routes = [
 {path:'user-cart',component:UserCartComponent},
 {path:'about-us',component:AboutUsComponent},
 {path:'how-it-works',component:HowItWorksComponent},
-{path:'catalog',component:CatalogComponent}
+{path:'catalog',component:CatalogComponent},
+{path:'product',component:BouquetPageComponent},
+{path:'manage-account',component:ManageAccountComponent}
 
 
 ];

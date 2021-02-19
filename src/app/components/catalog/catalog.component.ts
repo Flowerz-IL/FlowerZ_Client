@@ -9,6 +9,8 @@ import { style, trigger,state, transition,animate } from '@angular/animations';
 import { MatBottomSheet } from '@angular/material/bottom-sheet';
 import { ActionApproveComponent } from '../action-approve/action-approve.component';
 import { OrderComponent } from '../order/order.component';
+import { BouquetPageComponent } from '../bouquet-page/bouquet-page.component';
+import { BehaviorSubject } from 'rxjs';
 @Component({
   selector: 'app-catalog',
   templateUrl: './catalog.component.html',
@@ -20,9 +22,7 @@ export class CatalogComponent implements OnInit {
   MediumBouquetsData:Array<any>;
   LargeBouquetsData:Array<any>;
   hugeBouquetsData:Array<any>;
-
   userFilter: any = { bouquetsNames: ''};
-
   constructor(private UsersService: UsersService, private FlowerBouquetService:FlowerBouquetService, private OrderService:OrdersService,private _bottomSheet: MatBottomSheet) 
     {
       this.filteredData=new Array<any>();
@@ -74,9 +74,6 @@ export class CatalogComponent implements OnInit {
     this.OrderService.currentBouquetId.next(bouquetid);
     this.OrderService.currentBouquetPrice.next(bouquetPrice);
     this.openOrderSheet();
-
-
-
   }
 
     openBottomSheet(): void {
@@ -88,5 +85,14 @@ export class CatalogComponent implements OnInit {
     this._bottomSheet.open(OrderComponent);
     
   }
+  openProductPage(id:string):void{
+    this.FlowerBouquetService.setCurrentBouquet(id);
+    
+    this._bottomSheet.open(BouquetPageComponent);
+  }
+  loggedIn() {
+    return this.UsersService.loggedIn();
+  }
+
 
 }

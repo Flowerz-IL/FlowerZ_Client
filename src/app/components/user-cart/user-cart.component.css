@@ -1,6 +1,5 @@
 *{
-    overflow: visible; /* Enable scroll if needed */
-
+    overflow: visible; 
 }
 ul{
     display: block;

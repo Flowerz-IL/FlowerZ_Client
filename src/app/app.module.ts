@@ -36,6 +36,8 @@ import {MatStepperModule} from '@angular/material/stepper';
 import { CatalogComponent } from './components/catalog/catalog.component';
 import { FilterPipeModule } from 'ngx-filter-pipe';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { BouquetPageComponent } from './components/bouquet-page/bouquet-page.component';
+import { ManageAccountComponent } from './components/manage-account/manage-account.component';
 
 
 @NgModule({
@@ -58,6 +60,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     OrderHistoryComponent,
     HowItWorksComponent,
     CatalogComponent,
+    BouquetPageComponent,
+    ManageAccountComponent,
   ],
   imports: [
     BrowserModule,

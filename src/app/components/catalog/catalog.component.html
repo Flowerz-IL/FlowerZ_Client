@@ -5,6 +5,8 @@
     <h2> לנוחיותכם, הזרים מאורגנים לפי גודל . זהו אחד הפרמטרים החשובים בבחירת זר</h2>
 
 <br><br>
+<h1 *ngIf="!loggedIn()" style="color: red;">שלום אורח! שים לב, על מנת לבצע הזמנות, עלייך להיות מחובר</h1>
+<br>
   </div>
     <ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel">
       <ngb-panel title="זרים גדולים">
@@ -17,7 +19,8 @@
                 <div class="w3-container w3-center">
                   <p>{{d.bouquetsNames[i]}}</p>
                   <p>{{d.bouquetsPrices[i]}}ש"ח</p>
-                  <button (click)="chosenBouquet(d.bouquetID[i],d.bouquetsPrices[i])" mat-raised-button color="accent">הוסף לסל</button>
+                  <button (click)="openProductPage(d.bouquetID[i])" mat-raised-button color="primary">פרטים</button>
+                  <button *ngIf="loggedIn()" (click)="chosenBouquet(d.bouquetID[i],d.bouquetsPrices[i])" mat-raised-button color="accent">הוסף לסל</button>
         
                 </div>
               </div>
@@ -37,7 +40,9 @@
                  <div class="w3-container w3-center">
                    <p>{{d.bouquetsNames[i]}}</p>
                    <p>{{d.bouquetsPrices[i]}}ש"ח</p>
-                   <button (click)="chosenBouquet(d.bouquetID[i],d.bouquetsPrices[i])" mat-raised-button color="accent">הוסף לסל</button>
+                   <button (click)="openProductPage(d.bouquetID[i])" mat-raised-button color="primary">פרטים</button>
+                   <button *ngIf="loggedIn()" (click)="chosenBouquet(d.bouquetID[i],d.bouquetsPrices[i])" mat-raised-button color="accent">הוסף לסל</button>
+
          
                  </div>
                </div>
@@ -56,7 +61,8 @@
                  <div class="w3-container w3-center">
                    <p>{{d.bouquetsNames[i]}}</p>
                    <p>{{d.bouquetsPrices[i]}}ש"ח</p>
-                   <button (click)="chosenBouquet(d.bouquetID[i],d.bouquetsPrices[i])" mat-raised-button color="accent">הוסף לסל</button>
+                   <button (click)="openProductPage(d.bouquetID[i])" mat-raised-button color="primary">פרטים</button>
+                   <button *ngIf="loggedIn()" (click)="chosenBouquet(d.bouquetID[i],d.bouquetsPrices[i])" mat-raised-button color="accent">הוסף לסל</button>
          
                  </div>
                </div>
@@ -75,7 +81,8 @@
                  <div class="w3-container w3-center">
                    <p>{{d.bouquetsNames[i]}}</p>
                    <p>{{d.bouquetsPrices[i]}}ש"ח</p>
-                   <button (click)="chosenBouquet(d.bouquetID[i],d.bouquetsPrices[i])" mat-raised-button color="accent">הוסף לסל</button>
+                   <button (click)="openProductPage(d.bouquetID[i])" mat-raised-button color="primary">פרטים</button>
+                   <button *ngIf="loggedIn()" (click)="chosenBouquet(d.bouquetID[i],d.bouquetsPrices[i])" mat-raised-button color="accent">הוסף לסל</button>
          
                  </div>
                </div>

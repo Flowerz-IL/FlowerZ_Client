@@ -147,7 +147,8 @@
         <div class="w3-container w3-center">
           <p>{{d.bouquetName}}</p>
           <p>{{d.bouquetPrice}}ש"ח</p>
-          <button (click)="chosenBouquet(d._id,d.bouquetPrice)" mat-raised-button color="accent">הוסף לסל</button>
+          <button (click)="openProductPage(d._id)" mat-raised-button color="primary">פרטים</button>
+          <button *ngIf="loggedIn()" (click)="chosenBouquet(d._id,d.bouquetPrice)" mat-raised-button color="accent">הוסף לסל</button>
 
         </div>
       </div>

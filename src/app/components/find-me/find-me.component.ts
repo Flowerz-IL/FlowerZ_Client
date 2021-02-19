@@ -9,6 +9,8 @@ import { style, trigger,state, transition,animate } from '@angular/animations';
 import { MatBottomSheet } from '@angular/material/bottom-sheet';
 import { ActionApproveComponent } from '../action-approve/action-approve.component';
 import { OrderComponent } from '../order/order.component';
+import { BehaviorSubject } from 'rxjs';
+import { BouquetPageComponent } from '../bouquet-page/bouquet-page.component';
 
 @Component({
   selector: 'app-find-me',
@@ -35,6 +37,7 @@ export class FindMeComponent implements OnInit  {
   currentUser = { userId: '' };
   position="notStarted";
 
+
   constructor(private UsersService: UsersService, private FlowerBouquetService:FlowerBouquetService, private OrderService:OrdersService,private _bottomSheet: MatBottomSheet) {
     this.data = new Array<any>();
     this.counter=0;
@@ -57,8 +60,14 @@ export class FindMeComponent implements OnInit  {
 
    reset(){
      this.counter=0;
-     this.filteredData=new Array<any>();
-
+     this.filteredData=[];
+     this.rangeVal=0;
+     this.selectedColor="";
+     this.selectedColor2="";
+     this.occasions=['BIRTHDAY', 'WEEKEND_VIBES','APOLOGIZE','ROMANTIC','NORMAL','CELEBRATE','CALM','PRETTY_HOUSE'];
+     this.FlowerBouquetService.getFlowerBouquets().subscribe((data)=>{
+      this.data=data;
+    });  
    }
   getFlowerBouquetsFromServer(){
     this.FlowerBouquetService.getFlowerBouquets().subscribe((data)=>{
@@ -112,6 +121,17 @@ export class FindMeComponent implements OnInit  {
     this._bottomSheet.open(OrderComponent);
     
   }
+  openProductPage(id:string):void{
+    this.FlowerBouquetService.setCurrentBouquet(id);
+    
+    this._bottomSheet.open(BouquetPageComponent);
+  }
+
+  loggedIn() {
+    return this.UsersService.loggedIn();
+  }
+
+
 
 }
 
