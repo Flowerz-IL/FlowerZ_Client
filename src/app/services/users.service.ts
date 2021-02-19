@@ -12,6 +12,7 @@ import { OrdersService } from './orders.service';
   providedIn: 'root'
 })
 export class UsersService {
+ 
   username= new BehaviorSubject<string>(JSON.parse(JSON.stringify(localStorage.getItem('UserName'))));
   userId= new BehaviorSubject<string>(JSON.parse(JSON.stringify(localStorage.getItem('UserId'))));
   errorMessage="";
@@ -19,6 +20,8 @@ export class UsersService {
   registerError=new BehaviorSubject<string>("");
   userAddresses:Address[];
   userOrders:any[];
+  userPassword:String="";
+  currentUser!: User;
   //private usersRegisterUrl=environment.usersRegisterUrl;
   constructor(private http :HttpClient, private router:Router,private OrderService:OrdersService) {
     this.userAddresses=[];
@@ -40,11 +43,12 @@ export class UsersService {
       console.log(data.information.userName);
       this.username.next(data.information.userName);
       this.userId.next(data.information._id);
+      this.userPassword=user.userPassword;
       localStorage.setItem('token',data.token);
       localStorage.setItem('UserName',data.information.userName);
       localStorage.setItem('UserId',data.information._id);
       this.getUserAddresses(data.information._id);
-      this.router.navigate(['/find-me']);
+      // this.router.navigate(['/find-me']);
     },(error)=>{
       console.log(error);
       this.errorMessage=error.error.error;
@@ -131,5 +135,31 @@ export class UsersService {
     return this.username.toString();
   }
 
+  updateEmail(email:string){
+    console.log(email);
+    this.http.patch(this.baseUrl+'/specific/'+JSON.parse(JSON.stringify(localStorage.getItem('UserId'))),{
+      userEmail:email,
+    }).subscribe((data:any)=>{
+      console.log(data);
+    },(error)=>{
+      this.errorMessage=error.error.error;
+      console.log(error);
+      
+    });
+  }
+  updateName(userFirstName: string, userLastName: string) {
+    this.http.patch(this.baseUrl+'/specific/'+JSON.parse(JSON.stringify(localStorage.getItem('UserId'))),{
+      userFirstName:userFirstName,
+      userLastName:userLastName
+    }).subscribe((data:any)=>{
+      console.log(data);
+      this.logoutUser();
+      this.router.navigate(['/home']);
+    },(error)=>{
+      this.errorMessage=error.error.error;
+      console.log(error);
+      
+    });
+  }
 
 }

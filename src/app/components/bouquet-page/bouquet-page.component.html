@@ -1,0 +1,24 @@
+<main class="container" style="width: 600px;">
+ 
+    <div class="left-column" style="width: 350px;">
+      <img src="{{bouquetImgUrl}}">
+    </div>
+   
+   
+    <div class="right-column">
+   
+      <div class="product-description">
+        <span>זר פרחים</span>
+        <h1>{{bouquetName}}</h1>
+        <p>{{bouquetDes}}</p>
+      </div>
+   
+    
+   
+      <div class="product-price">
+        <span> ש"ח {{bouquetPrice}}</span>
+        <button *ngIf="loggedIn()"  (click)="chosenBouquet(currentBouquetId,bouquetPrice)" mat-raised-button color="accent">הוסף לסל</button>
+    </div>
+    </div>
+  </main>
+  
