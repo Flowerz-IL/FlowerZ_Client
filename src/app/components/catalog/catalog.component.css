@@ -10,16 +10,16 @@
     padding: 14px 40px;
     border-radius: 5px;
     background-color: white;
-    border: 2px solid pink; 
+    border: 2px solid pink;
     transition: 0.7s;
 
 
 }
 .title, .mini-title{
     text-align: center;
-    font-size: x-large;
+    font-size: 4rem;
     font-weight: bold;
-    margin-top: 10%;
+    margin-top: 10px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 .card {
@@ -55,7 +55,7 @@ button{
 }
 .item{
     padding: 20px 40px;
-    
+
 }
 mat-slider{
     width: 300px;
@@ -63,7 +63,7 @@ mat-slider{
 .card{
     display:inline-block;
     display: flex;
-    
+
 }
 span{
     display: inline-block;
@@ -83,7 +83,7 @@ ul{
 .w3-container {
     flex:1;
   }
-  
+
   .w3-card {
     height: 100%;
   }
@@ -96,30 +96,49 @@ ul{
     vertical-align: middle;
 
   }
-  .form-inline {  
+  .form-inline {
     display: inline-block;
     width: 100%;
     margin-bottom: 10px;
   }
-  .form-inline input,button {  
+  .form-inline input,button {
   }
-  
+
   .form-inline label {
     margin: 5px 10px 5px 0;
   }
-  
+
+  .form-control{
+    width: 300px;
+    padding: 5px;
+    margin: 0 10px;
+  }
 
 
-  
+
 
   @media (max-width: 800px) {
     .form-inline input {
       margin: 10px 0;
     }
-    
+
     .form-inline {
       flex-direction: column;
       align-items: stretch;
       margin-left: 0px;
+    }
+
+    .form-inline {
+      display: flex;
+      flex-direction: column-reverse;
+      width: 100%;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .form-control{
+      width: 90%;
+      padding: 5px;
+      margin: 0;
     }
   }

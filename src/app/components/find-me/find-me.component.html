@@ -23,7 +23,7 @@
 <div *ngIf="counter==1">
 
 
-    <div class="container" style="width: 30%;" >
+    <div class="container" >
         <h1>תחילה,בחר את סוג האירוע</h1>
         <p>אלה הם האירועים שאנו מתמחים בהם, הסר/י מה שלא רלוונטי בענייך</p>
         <ul class="w3-ul w3-card-4" >
@@ -34,7 +34,7 @@
               <span class="w3-large">יום הולדת</span><br>
             </div>
           </li>
-      
+
           <li class="w3-bar">
             <span (click)="arrangeOccasions('WEEKEND_VIBES')" onclick="this.parentElement.style.display='none'" class="w3-bar-item w3-button w3-xlarge w3-right">×</span>
             <img src="../../../assets/images/weekendPicture.png" class="eventPicture w3-bar-item  w3-hide-small" >
@@ -42,7 +42,7 @@
               <span class="w3-large">סוף שבוע</span><br>
             </div>
           </li>
-      
+
           <li class="w3-bar">
             <span (click)="arrangeOccasions('APOLOGIZE')"  onclick="this.parentElement.style.display='none'" class="w3-bar-item w3-button  w3-xlarge w3-right">×</span>
             <img src="../../../assets/images/ApologyFlower.jpg" class="eventPicture w3-bar-item w3-hide-small" >
@@ -123,14 +123,14 @@
   <button class="startBtn" (click)="chosenBouquets()">הצע לי זר</button>
 </div>
 <div *ngIf="counter==4">
-  <mat-spinner style="margin:0 auto; padding: 20px 20px 2px 20px;" 
+  <mat-spinner style="margin:0 auto; padding: 20px 20px 2px 20px;"
   mode="indeterminate"></mat-spinner> <br>
 <h1> שנייה לפני שמסיימים, אני ממליץ לעקוב אחרינו ברשתות החברתיות בשביל להיות מעודכן בהצעות הטובות ביותר שלנו</h1>
 <button class="startBtn" (click)="onClick()">תודה על ההצעה</button>
 
 </div>
 <div *ngIf="counter==5" style="margin: 0 auto;">
- 
+
   <div *ngIf="filteredData.length==0">
     <h1>היי, לצערי לא מצאתי משהו שמתאים לבקשות שלך, אתה מוזמן להתסכל בקטלוג שלנו או להתחיל מהתחלה</h1>
   </div>
@@ -141,7 +141,7 @@
   <ul *ngFor="let d of filteredData"   style="display: inline-block;">
 
     <div class="w3-container" style="white-space: nowrap; display:inline-block;height: 400px;
-    width: 280px;">    
+    width: 280px;">
       <div class="w3-card-4" style="width:300px">
         <img src="{{d.bouquetImageUrl}}" alt="Alps" style="width:100%">
         <div class="w3-container w3-center">
@@ -153,7 +153,7 @@
         </div>
       </div>
     </div>
-    
+
   </ul>
   <br><br><br>
   <button class="startBtn" (click)="reset()">התחל מחדש</button>

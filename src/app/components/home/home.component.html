@@ -1,24 +1,24 @@
 
-<body>
-    <div class="first-container">
-        <h1>הדרך החדשה שלכם לשמח את הקרובים אליכם, לעצב את הבית או סתם לפנק את עצמכם</h1>
-        <p>שירות הפרחים היעיל , המהיר והמהנה ביותר. התחילו בקלות כאן </p>
-        <button [routerLink] ="['/find-me']" class="firstBtn" mat-raised-button color="accent">מצא לי זר</button>
-    </div>
-    <hr>
-   <div class="second-container">
-<p>  וכל זה עבור סוגים שונים של אירועים</p>
-<br>
-<img src="../../../assets/images/Event1.png" style="width: 50%;border-radius: 15px;">
-<br>
-<br>
-<h1>כל המגוון שלנו מחכה לכם בקטלוג</h1>
-<button [routerLink] ="['/catalog']" class="firstBtn" mat-raised-button color="accent">קטלוג</button>
-
-</div>
-<div class="first-container">
-<h1>?רוצים ללמוד עוד קצת עלינו</h1>
-<p>הכנסו לעמוד הבא, למדו על הצוות וצרו איתנו קשר עוד היום </p>
-<button [routerLink] ="['/about-us']" class="firstBtn" mat-raised-button color="accent">צור קשר</button>
-</div>
-</body>
+<main>
+  <div class='background'>
+    <video class='background-video' autoplay loop>
+      <source src="../../../assets/flowerShop.mp4" type="video/mp4">
+    </video>
+  </div>
+  <div class="container">
+      <h2> אני מחפש לבד </h2>
+      <p> כל המגוון שלנו מחכה בשבילכם בקטלוג </p>
+      <button [routerLink] ="['/catalog']" class="button" mat-raised-button color="accent">קח אותי לקטלוג </button>
+  </div>
+  <hr />
+  <div class="container">
+    <h2> תמצאו לי אתם </h2>
+    <p>  תן לנו למצוא לך את הזר המושלם לאירוע ולמצב רוח שלך</p>
+    <button [routerLink] ="['/find-me']" class="button" mat-raised-button color="accent">קטלוג</button>
+  </div>
+  <div class="container">
+    <h2> תספרו לי על הצוות </h2>
+    <p>?רוצה ללמוד עוד קצת עלינו</p>
+    <button button [routerLink] ="['/about-us']" class="button" mat-raised-button color="accent">מי אנחנו</button>
+  </div>
+</main>

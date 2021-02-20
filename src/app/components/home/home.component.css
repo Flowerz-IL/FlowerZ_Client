@@ -1,58 +1,70 @@
-body{
-    background: none;
-}
-.first-container{
-    width: 100%;
-    padding: 100px 100px 100px 100px;
-    text-align: center;
-    font-size: x-large;
-    font-weight: bold;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    
-}
-.firstBtn{
-    width: max-content;
-    font-size: larger;
-    top: auto;
-    padding: 6px;
-    margin-top: 20px;
-}
-.firstBtn:hover{
-    background-color:hotpink;
-}
-.second-container{
-    font-size: 100px;
 
-    width: 100%;
-    text-align: center;
-    font-size: x-large;
-    font-weight: bold;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100vw;
+  height: 90vh;
+  box-sizing: border-box;
 }
-.row{
-    width: 100%;
 
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1;
 }
-.column{
-    display: inline-block;
-    margin-left: 150px;
-    justify-content: space-around;
-    
-}
-.card {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    padding: 10px 10px 10px 10px;
-    background-color: rgba(255,255,255,0.5);
-    text-align: center;
-    width: 300px;
 
-    }
-  
-  .card:hover {
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+.background-video {
+  opacity: 0.4;
+  filter: drop-shadow(2px 4px 6px black);
+}
+
+.container {
+  width: 30%;
+  background-color:  #d5dce67a;
+  padding: 15px;
+  height: 40vh;
+  display: flex;
+  flex-direction: column;
+  justify-content:center;
+  align-items: center;
+}
+
+.container h2{
+  font-size: 4rem;
+  font-weight: bold;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #222831;
+}
+
+button {
+  width: 150px;
+  height: 50px;
+}
+
+button:hover {
+  background-color:hotpink;
+}
+
+@media screen and (max-width: 880px) {
+  main {
+    flex-direction: column;
+    height: auto;
+    justify-content: center;
   }
-  
+
   .container {
-    padding: 2px 16px;
-   
+    width: 90%;
+    margin: 10px 0;
+    background-color:  #d5dce6;
+    text-align: center;
   }
+
+  .background {
+    display: none;
+  }
+}
+

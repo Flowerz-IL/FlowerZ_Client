@@ -9,9 +9,9 @@
 <div class="form-inline">
   <button (click)="searchBouquets()" mat-raised-button color="primary">חפש</button>
   <input class="form-control" [(ngModel)]="rangeVal" type="number"  placeholder="מחיר" >
-    <input class="form-control" [(ngModel)]="selectedColor" type="text"placeholder="צבע" >
+  <input class="form-control" [(ngModel)]="selectedColor" type="text"placeholder="צבע" >
   <input class="form-control" [(ngModel)]="occasion" type="text"  placeholder="סוג אירוע" >
-</div>   
+</div>
 
 <h1 *ngIf="!loggedIn()" style="color: red;">שלום אורח! שים לב, על מנת לבצע הזמנות, עלייך להיות מחובר</h1>
 <br>
@@ -19,7 +19,7 @@
       <ngb-panel title="תוצאות חיפוש">
         <ng-template ngbPanelContent>
          <ul *ngFor="let d of filteredData" style="display: inline-block;">
-          <div class="w3-container" style="display:inline-block;height: 400px; width: 280px;">    
+          <div class="w3-container" style="display:inline-block;height: 400px; width: 280px;">
             <div class="w3-card-8" style="width:200px; box-sizing: border-box;">
               <img src="{{d.bouquetImageUrl}}" alt="Alps" style="width:100%">
               <div class="w3-container w3-center">
@@ -27,7 +27,7 @@
                 <p>{{d.bouquetPrice}}ש"ח</p>
                 <button (click)="openProductPage(d._id)" mat-raised-button color="primary">פרטים</button>
                 <button *ngIf="loggedIn()" (click)="chosenBouquet(d._id,d.bouquetPrice)" mat-raised-button color="accent">הוסף לסל</button>
-      
+
               </div>
             </div>
           </div>
@@ -38,7 +38,7 @@
         <ng-template ngbPanelContent>
          <ul *ngFor="let d of LargeBouquetsData">
            <ul *ngFor="let b of d.bouquetID;  let i = index" [attr.data-index]="i"  style="display: inline-block;">
-            <div class="w3-container" style="white-space: nowrap;margin-top:10px;display:inline-block;height:400px; width: 280px;">    
+            <div class="w3-container" style="white-space: nowrap;margin-top:10px;display:inline-block;height:400px; width: 280px;">
               <div class="w3-card-8" style="width:200px;    box-sizing: border-box;">
                 <img src="{{d.bouquetsImageUrls[i]}}" alt="Alps" style="width:100%;height: 200px; border-radius: 10px;">
                 <div class="w3-container w3-center">
@@ -46,7 +46,7 @@
                   <p>{{d.bouquetsPrices[i]}}ש"ח</p>
                   <button (click)="openProductPage(d.bouquetID[i])" mat-raised-button color="primary">פרטים</button>
                   <button *ngIf="loggedIn()" (click)="chosenBouquet(d.bouquetID[i],d.bouquetsPrices[i])" mat-raised-button color="accent">הוסף לסל</button>
-        
+
                 </div>
               </div>
             </div>
@@ -55,11 +55,11 @@
         </ng-template>
       </ngb-panel>
       <ngb-panel title="זרים בינוניים">
-        
+
         <ng-template ngbPanelContent>
           <ul *ngFor="let d of MediumBouquetsData">
             <ul *ngFor="let b of d.bouquetID;  let i = index" [attr.data-index]="i"  style="display: inline-block;">
-             <div class="w3-container" style="white-space: nowrap;margin-top:10px;display:inline-block;height:400px; width: 280px;">    
+             <div class="w3-container" style="white-space: nowrap;margin-top:10px;display:inline-block;height:400px; width: 280px;">
                <div class="w3-card-8" style="width:200px;    box-sizing: border-box;">
                  <img src="{{d.bouquetsImageUrls[i]}}" alt="Alps" style="width:100%;height: 200px; border-radius: 10px;">
                  <div class="w3-container w3-center">
@@ -68,7 +68,7 @@
                    <button (click)="openProductPage(d.bouquetID[i])" mat-raised-button color="primary">פרטים</button>
                    <button *ngIf="loggedIn()" (click)="chosenBouquet(d.bouquetID[i],d.bouquetsPrices[i])" mat-raised-button color="accent">הוסף לסל</button>
 
-         
+
                  </div>
                </div>
              </div>
@@ -80,7 +80,7 @@
         <ng-template ngbPanelContent>
           <ul *ngFor="let d of hugeBouquetsData">
             <ul *ngFor="let b of d.bouquetID;  let i = index" [attr.data-index]="i"  style="display: inline-block;">
-             <div class="w3-container" style="white-space: nowrap;margin-top:10px;display:inline-block;height:400px; width: 280px;">    
+             <div class="w3-container" style="white-space: nowrap;margin-top:10px;display:inline-block;height:400px; width: 280px;">
                <div class="w3-card-8" style="width:200px;    box-sizing: border-box;">
                  <img src="{{d.bouquetsImageUrls[i]}}" alt="Alps" style="width:100%;height: 200px; border-radius: 10px;">
                  <div class="w3-container w3-center">
@@ -88,7 +88,7 @@
                    <p>{{d.bouquetsPrices[i]}}ש"ח</p>
                    <button (click)="openProductPage(d.bouquetID[i])" mat-raised-button color="primary">פרטים</button>
                    <button *ngIf="loggedIn()" (click)="chosenBouquet(d.bouquetID[i],d.bouquetsPrices[i])" mat-raised-button color="accent">הוסף לסל</button>
-         
+
                  </div>
                </div>
              </div>
@@ -100,7 +100,7 @@
         <ng-template ngbPanelContent>
           <ul *ngFor="let d of smallBouquetsData">
             <ul *ngFor="let b of d.bouquetID;  let i = index" [attr.data-index]="i"  style="display: inline-block;">
-             <div class="w3-container" style="white-space: nowrap;margin-top:10px;display:inline-block;height:400px; width: 280px;">    
+             <div class="w3-container" style="white-space: nowrap;margin-top:10px;display:inline-block;height:400px; width: 280px;">
                <div class="w3-card-8" style="width:200px;    box-sizing: border-box;">
                  <img src="{{d.bouquetsImageUrls[i]}}" alt="Alps" style="width:100%;height: 200px; border-radius: 10px;">
                  <div class="w3-container w3-center">
@@ -108,7 +108,7 @@
                    <p>{{d.bouquetsPrices[i]}}ש"ח</p>
                    <button (click)="openProductPage(d.bouquetID[i])" mat-raised-button color="primary">פרטים</button>
                    <button *ngIf="loggedIn()" (click)="chosenBouquet(d.bouquetID[i],d.bouquetsPrices[i])" mat-raised-button color="accent">הוסף לסל</button>
-         
+
                  </div>
                </div>
              </div>

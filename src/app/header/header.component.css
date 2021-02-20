@@ -2,20 +2,27 @@
   margin: 0;
   padding: 0;
   font-family:Verdana, Geneva, Tahoma, sans-serif;
-  
+}
+
+header {
+  padding: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 ul {
-  float: left;
   list-style-type: none;
   font-size: 20px;
-
 }
 
 ul li {
   margin-top: 10px;
   margin-bottom: 10px;
-  float: left;
+  display: inline-block;
 }
 
 ul li a {
@@ -30,35 +37,107 @@ ul li a:hover {
   transition: 0.3s ease-out;
 
 }
-.logo {
-  margin-top: 20px;
-  width: 400px;
-  height: auto;
+
+.logo-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex: 1;
 }
 
-.main {
-  margin: auto;
+.logo-text {
+  font-size: 3rem;
+  text-transform: uppercase;
+  font-weight: normal;
+  letter-spacing: 1.5px;
+  font-family: serif;
+  margin: 5px;
+  color: #222831;
 }
-.login-partial{
-  float: right;
-  display: inline-block;
-}
-header{
-  display: inline-block;
-  width: 70%;
-  text-align: center;
-}
-.img{
-  margin:auto;
 
+.colored text {
+  color: 1DC7EA;
 }
+
 .find-meBtn{
   border: 1px;
   border-radius: 10px;
   border-color: pink;
 }
-@media screen and (max-width:800px){
-  .login-partial{
-    float: none;
+
+.hamburger {
+  display: none;
+}
+
+.checkbox {
+  display: none;
+}
+
+@media screen and (max-width:880px) {
+  .logo-text {
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    font-weight: normal;
+    letter-spacing: 1.5px;
+    font-family: serif;
+    margin: 5px;
+    color: #222831;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .list-wrapper{
+    position: relative;
+  }
+
+  .list-wrapper .list {
+    background-color: white;
+    display: inline-block;
+    position: fixed;
+    top: -100px;
+    opacity: 0;
+    left: 0;
+    width: 100vw;
+    height: auto;
+    z-index: 2;
+    text-align: center;
+    transition: all .2s linear;
+  }
+
+  .hamburger {
+    width: 30px;
+    height: auto;
+  }
+
+  .line {
+    width: 20px;
+    height: 2px;
+    background-color: #222831;
+    margin: 5px 0 ;
+  }
+
+  .checkbox {
+    display: block;
+    position: absolute;
+    right:5px;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    margin: 0;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 3;
+  }
+
+  .checkbox:checked ~ .list {
+    top: 50px;
+    opacity: 1;
+  }
+
+  .checkbox:checked ~ .list ul li {
+    display: block;
+    margin: 15px;
   }
 }
