@@ -1,24 +1,24 @@
 
 <header>
-    
-        <ul>
-
-            <li><a [routerLink] ="['/about-us']">מי אנחנו </a></li>
-            <li><a [routerLink] ="['/find-me']" class="find-meBtn" style="border:1px solid; border-color:hotpink">מצא לי זר</a></li>
-            <li><a [routerLink] ="['/catalog']">הפרחים שלנו </a></li>
-            <li><a [routerLink] ="['/home']">בית </a></li>
-         
-        
-        </ul>
-
-            <img class="img" src="../../assets/images/MainLogo.png" style="width: 240px;">
-    
+  <div class="logo-wrapper">
+    <p class="logo-text">🌺 FlowerZ<span class="colored text">IL</span> 🌺</p>
+  </div>
+  <div class='list-wrapper'>
+    <input type="checkbox" class="checkbox">
+    <div class='hamburger'>
+      <div class='line'></div>
+      <div class='line'></div>
+      <div class='line'></div>
+    </div>
+    <div class='list'>
+      <ul>
+          <li><a [routerLink] ="['/about-us']">מי אנחנו </a></li>
+          <li><a [routerLink] ="['/find-me']" class="find-meBtn" style="border:1px solid; border-color:hotpink">מצא לי זר</a></li>
+          <li><a [routerLink] ="['/catalog']">הפרחים שלנו </a></li>
+          <li><a [routerLink] ="['/home']">בית </a></li>
+      </ul>
+    </div>
+  </div>
+  <app-login></app-login>
 </header>
-<div class="login-partial">
-    <app-login></app-login>
-</div>
-
-<div class="main">
-
-</div>
 

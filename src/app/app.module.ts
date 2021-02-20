@@ -4,7 +4,6 @@ import { MatSliderModule } from '@angular/material/slider';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
-import { FooterComponent } from './footer/footer.component';
 import { ProviderJoinComponent } from './provider-join/provider-join.component';
 import { FindMeComponent } from './components/find-me/find-me.component';
 import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
@@ -44,7 +43,6 @@ import { ManageAccountComponent } from './components/manage-account/manage-accou
   declarations: [
     AppComponent,
     HeaderComponent,
-    FooterComponent,
     ProviderJoinComponent,
     FindMeComponent,
     FlowerbouquetDetailsComponent,
@@ -82,12 +80,12 @@ import { ManageAccountComponent } from './components/manage-account/manage-accou
     MatStepperModule,
     FilterPipeModule,
     NgbModule
-    
+
   ],
   providers: [
 
   ],
   bootstrap: [AppComponent]
-  
+
 })
 export class AppModule { }
