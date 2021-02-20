@@ -3,6 +3,7 @@
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     background: none;
     align-items: center;
+
 }
 
 .startBtn{
@@ -17,10 +18,14 @@
 }
 .title, .mini-title{
     text-align: center;
-    font-size: 4rem;
+    font-size: 3rem;
     font-weight: bold;
     margin-top: 10px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.title p{
+  margin-bottom: 1.5%;
+
 }
 .card {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
@@ -142,3 +147,9 @@ ul{
       margin: 0;
     }
   }
+input{
+  font-size: large;
+}
+.btn{
+  font-size: 20rem !important;
+}

@@ -110,6 +110,10 @@ export class CatalogComponent implements OnInit {
 
   searchBouquets() {
     this.filteredData = [];
+    if(this.rangeVal==undefined)
+    {
+      this.rangeVal=0;
+    }
     this.occasion = occasionValidation(this.occasion);
     this.selectedColor = colorValidation(this.selectedColor);
     this.FlowerBouquetService.getFlowerBouquets().subscribe((data) => {
@@ -215,5 +219,6 @@ export class CatalogComponent implements OnInit {
         }
       });
     });
+
   }
 }

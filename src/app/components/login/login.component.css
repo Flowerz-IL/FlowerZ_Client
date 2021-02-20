@@ -1,5 +1,6 @@
 
-body {font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;}
+body {font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+}
 
 /* Full-width input fields */
 input[type=text], input[type=password] {
@@ -10,6 +11,7 @@ input[type=text], input[type=password] {
   border: 1px solid #ccc;
   box-sizing: border-box;
   text-align: right;
+  font-size: large;
 
 }
 
@@ -186,6 +188,8 @@ span.psw {
 }
 .login-partial{
   display: inline-block;
+    font-size: 20px;
+
 }
 
 .dropdown {
