@@ -1,0 +1,4 @@
+PORT=8080
+ATLAS_DB_URL=mongodb+srv://flowerZ:XhDLg080de3JJcqy@flowerzapi.y0cyw.mongodb.net/FlowerZWebsite?retryWrites=true&w=majority
+SALT_ROUNDS=10
+JWT_SECRET=gArmcIYFDNDZs

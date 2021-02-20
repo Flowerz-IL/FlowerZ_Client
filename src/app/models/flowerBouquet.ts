@@ -6,5 +6,6 @@ export interface FlowerBouquet{
     bouquetImageUrl:URL,
     bouquetOccasionStyle:String,
     bouquetColors:String
+    bouquetName:String
 
 }

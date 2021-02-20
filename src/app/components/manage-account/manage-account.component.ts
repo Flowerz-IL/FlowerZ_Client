@@ -26,6 +26,9 @@ export class ManageAccountComponent implements OnInit {
     this.userService.updateName(this.userObj.userFirstName,this.userObj.userLastName);
 
   }
+  updatePassword(){
+    this.userService.updatePassword(this.userObj.userPassword);
+  }
   openBottomSheet(): void {
     
     this._bottomSheet.open(ActionApproveComponent);

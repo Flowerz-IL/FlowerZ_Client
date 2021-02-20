@@ -12,6 +12,7 @@ import { OrdersService } from './orders.service';
   providedIn: 'root'
 })
 export class UsersService {
+
  
   username= new BehaviorSubject<string>(JSON.parse(JSON.stringify(localStorage.getItem('UserName'))));
   userId= new BehaviorSubject<string>(JSON.parse(JSON.stringify(localStorage.getItem('UserId'))));
@@ -141,6 +142,8 @@ export class UsersService {
       userEmail:email,
     }).subscribe((data:any)=>{
       console.log(data);
+      this.logoutUser();
+      this.router.navigate(['/home']);
     },(error)=>{
       this.errorMessage=error.error.error;
       console.log(error);
@@ -157,6 +160,18 @@ export class UsersService {
       this.router.navigate(['/home']);
     },(error)=>{
       this.errorMessage=error.error.error;
+      console.log(error);
+      
+    });
+  }
+  updatePassword(userPassword: string) {
+    this.http.patch(this.baseUrl+'/specific/'+JSON.parse(JSON.stringify(localStorage.getItem('UserId'))),{
+      userPassword:userPassword
+    }).subscribe((data:any)=>{
+      console.log(data);
+      this.logoutUser();
+      this.router.navigate(['/home']);
+    },(error)=>{
       console.log(error);
       
     });

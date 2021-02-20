@@ -11,6 +11,7 @@ import { ActionApproveComponent } from '../action-approve/action-approve.compone
 import { OrderComponent } from '../order/order.component';
 import { BouquetPageComponent } from '../bouquet-page/bouquet-page.component';
 import { BehaviorSubject } from 'rxjs';
+import { ThisReceiver } from '@angular/compiler';
 @Component({
   selector: 'app-catalog',
   templateUrl: './catalog.component.html',
@@ -18,10 +19,15 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class CatalogComponent implements OnInit {
   filteredData:Array<any>;
+  data:Array<any>;
+  occasions=['BIRTHDAY', 'WEEKEND_VIBES','APOLOGIZE','ROMANTIC','NORMAL','CELEBRATE','CALM','PRETTY_HOUSE'];
+  selectedColor:String="";
   smallBouquetsData:Array<any>;
   MediumBouquetsData:Array<any>;
   LargeBouquetsData:Array<any>;
   hugeBouquetsData:Array<any>;
+  occasion="";
+  rangeVal=0;
   userFilter: any = { bouquetsNames: ''};
   constructor(private UsersService: UsersService, private FlowerBouquetService:FlowerBouquetService, private OrderService:OrdersService,private _bottomSheet: MatBottomSheet) 
     {
@@ -30,8 +36,7 @@ export class CatalogComponent implements OnInit {
       this.MediumBouquetsData = new Array<any>();
       this.LargeBouquetsData = new Array<any>();
       this.hugeBouquetsData = new Array<any>();
-
-
+      this.data = new Array<any>();
     }
 
   ngOnInit(): void {
@@ -94,5 +99,204 @@ export class CatalogComponent implements OnInit {
     return this.UsersService.loggedIn();
   }
 
+  searchBouquets(){
+    this.filteredData=[];
+    this.FlowerBouquetService.getFlowerBouquets().subscribe((data)=>{
+      this.data=data;
+      console.log(data);
+      this.data.forEach(element => {
+        if(this.rangeVal!=0&&this.selectedColor!=""&&this.occasion!="")
+        {
+          if((element.bouquetPrice)>=this.rangeVal-50 &&(element.bouquetPrice)<=this.rangeVal+50)
+              {
+                if(this.occasion=="יום הולדת")
+                this.occasion='BIRTHDAY';
+              if(this.occasion=="התנצלות")
+              this.occasion='APOLOGIZE';
+                if(this.occasion=="רומנטיקה")
+                this.occasion='ROMANTIC';
+                if(this.occasion=="רגיל")
+                this.occasion='NORMAL';
+                if(this.occasion=="לבית")
+                this.occasion='PRETTY_HOUSE';
+                if(element.bouquetOccasionStyle==this.occasion)
+                {
+                  if(this.selectedColor=="כחול")
+                  this.selectedColor="blue";
+                  if(this.selectedColor=="אדום")
+                  this.selectedColor="red";
+                  if(this.selectedColor=="צהוב")
+                  this.selectedColor="yellow";
+                  if(this.selectedColor=="ורוד")
+                  this.selectedColor="pink";
+                  if(this.selectedColor=="סגול")
+                  this.selectedColor="purple";
+                  if(this.selectedColor=="לבן")
+                  this.selectedColor="white";
+                  element.bouquetColors.forEach((color:any) => {
+                    if(color==this.selectedColor)
+                    {
+                      this.filteredData.push(element);
+                    }
+                  });
+                }
+              }
+        }
+        else if(this.rangeVal==0&&this.occasion=="")
+        {
+          if(this.selectedColor=="כחול")
+          this.selectedColor="blue";
+          if(this.selectedColor=="אדום")
+          this.selectedColor="red";
+          if(this.selectedColor=="צהוב")
+          this.selectedColor="yellow";
+          if(this.selectedColor=="ורוד")
+          this.selectedColor="pink";
+          if(this.selectedColor=="סגול")
+          this.selectedColor="purple";
+          if(this.selectedColor=="לבן")
+          this.selectedColor="white";
+          element.bouquetColors.forEach((color:any) => {
+            if(color==this.selectedColor)
+            {
+              this.filteredData.push(element);
+            }
+          });
+        }
+       else if(this.rangeVal==0 && this.selectedColor=="")
+        {
+          if(this.occasion=="יום הולדת")
+            this.occasion='BIRTHDAY';
+          if(this.occasion=="התנצלות")
+          this.occasion='APOLOGIZE';
+            if(this.occasion=="רומנטיקה")
+            this.occasion='ROMANTIC';
+            if(this.occasion=="רגיל")
+            this.occasion='NORMAL';
+            if(this.occasion=="לבית")
+            this.occasion='PRETTY_HOUSE';
+            if(element.bouquetOccasionStyle==this.occasion)
+            this.filteredData.push(element);
+        }
+        else if(this.selectedColor==""&&this.occasion=="")
+        {
+          if((element.bouquetPrice)>=this.rangeVal-50 &&(element.bouquetPrice)<=this.rangeVal+50)
+              {
+                  this.filteredData.push(element);  
+              }
+        }
+        else if(this.rangeVal==0&&this.occasion=="")
+        {
+          if(this.selectedColor=="כחול")
+              this.selectedColor="blue";
+              if(this.selectedColor=="אדום")
+              this.selectedColor="red";
+              if(this.selectedColor=="צהוב")
+              this.selectedColor="yellow";
+              if(this.selectedColor=="ורוד")
+              this.selectedColor="pink";
+              if(this.selectedColor=="סגול")
+              this.selectedColor="purple";
+              if(this.selectedColor=="לבן")
+              this.selectedColor="white";
+              element.bouquetColors.forEach((color:any) => {
+                if(color==this.selectedColor)
+                {
+                  this.filteredData.push(element);
+                }
+              });
+        }
+        else if(this.rangeVal==0)
+        {
+          if(this.selectedColor!="" && this.occasion!="")
+          {
+            if(this.selectedColor=="כחול")
+            this.selectedColor="blue";
+            if(this.selectedColor=="אדום")
+            this.selectedColor="red";
+            if(this.selectedColor=="צהוב")
+            this.selectedColor="yellow";
+            if(this.selectedColor=="ורוד")
+            this.selectedColor="pink";
+            if(this.selectedColor=="סגול")
+            this.selectedColor="purple";
+            if(this.selectedColor=="לבן")
+            this.selectedColor="white";
+            element.bouquetColors.forEach((color:any) => {
+              if(color==this.selectedColor)
+              {
+                if(this.occasion=="יום הולדת")
+                this.occasion='BIRTHDAY';
+              if(this.occasion=="התנצלות")
+              this.occasion='APOLOGIZE';
+                if(this.occasion=="רומנטיקה")
+                this.occasion='ROMANTIC';
+                if(this.occasion=="רגיל")
+                this.occasion='NORMAL';
+                if(this.occasion=="לבית")
+                this.occasion='PRETTY_HOUSE';
+                if(element.bouquetOccasionStyle==this.occasion)
+                this.filteredData.push(element);
+              }
+            });
+          }
+        }
+        else if(this.selectedColor=="")
+        {
+          if(this.rangeVal!=0&&this.occasion!="")
+          {
+            if((element.bouquetPrice)>=this.rangeVal-50 &&(element.bouquetPrice)<=this.rangeVal+50)
+            {
+              if(this.occasion=="יום הולדת")
+              this.occasion='BIRTHDAY';
+            if(this.occasion=="התנצלות")
+            this.occasion='APOLOGIZE';
+              if(this.occasion=="רומנטיקה")
+              this.occasion='ROMANTIC';
+              if(this.occasion=="רגיל")
+              this.occasion='NORMAL';
+              if(this.occasion=="לבית")
+              this.occasion='PRETTY_HOUSE';
+              if(element.bouquetOccasionStyle==this.occasion)
+              this.filteredData.push(element);
+            }
+          }
+        }
+        else if(this.occasion=="")
+        {
+          if(this.rangeVal!=0&&this.selectedColor!="")
+          {
+            if((element.bouquetPrice)>=this.rangeVal-50 &&(element.bouquetPrice)<=this.rangeVal+50)
+            {
+              if(this.selectedColor=="כחול")
+              this.selectedColor="blue";
+              if(this.selectedColor=="אדום")
+              this.selectedColor="red";
+              if(this.selectedColor=="צהוב")
+              this.selectedColor="yellow";
+              if(this.selectedColor=="ורוד")
+              this.selectedColor="pink";
+              if(this.selectedColor=="סגול")
+              this.selectedColor="purple";
+              if(this.selectedColor=="לבן")
+              this.selectedColor="white";
+              element.bouquetColors.forEach((color:any) => {
+                if(color==this.selectedColor)
+                {
+                  this.filteredData.push(element);
+                }
+              });
+            }
+          }
+        }
+
+    
+
+  });
+    });
+    
+    console.log(this.filteredData);
+
+    }
 
 }

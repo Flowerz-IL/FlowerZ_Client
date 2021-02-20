@@ -3,12 +3,37 @@
     <p> ברוכים הבאים לעמוד הקטלוג</p>
     <h1>כאן תוכלו למצוא את מגוון הזרים שלנו</h1>
     <h2> לנוחיותכם, הזרים מאורגנים לפי גודל . זהו אחד הפרמטרים החשובים בבחירת זר</h2>
+<br>
+</div>
 
-<br><br>
+<div class="form-inline">
+  <button (click)="searchBouquets()" mat-raised-button color="primary">חפש</button>
+  <input class="form-control" [(ngModel)]="rangeVal" type="number"  placeholder="מחיר" >
+    <input class="form-control" [(ngModel)]="selectedColor" type="text"placeholder="צבע" >
+  <input class="form-control" [(ngModel)]="occasion" type="text"  placeholder="סוג אירוע" >
+</div>   
+
 <h1 *ngIf="!loggedIn()" style="color: red;">שלום אורח! שים לב, על מנת לבצע הזמנות, עלייך להיות מחובר</h1>
 <br>
-  </div>
     <ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel">
+      <ngb-panel title="תוצאות חיפוש">
+        <ng-template ngbPanelContent>
+         <ul *ngFor="let d of filteredData" style="display: inline-block;">
+          <div class="w3-container" style="display:inline-block;height: 400px; width: 280px;">    
+            <div class="w3-card-8" style="width:200px; box-sizing: border-box;">
+              <img src="{{d.bouquetImageUrl}}" alt="Alps" style="width:100%">
+              <div class="w3-container w3-center">
+                <p>{{d.bouquetName}}</p>
+                <p>{{d.bouquetPrice}}ש"ח</p>
+                <button (click)="openProductPage(d._id)" mat-raised-button color="primary">פרטים</button>
+                <button *ngIf="loggedIn()" (click)="chosenBouquet(d._id,d.bouquetPrice)" mat-raised-button color="accent">הוסף לסל</button>
+      
+              </div>
+            </div>
+          </div>
+         </ul>
+        </ng-template>
+      </ngb-panel>
       <ngb-panel title="זרים גדולים">
         <ng-template ngbPanelContent>
          <ul *ngFor="let d of LargeBouquetsData">

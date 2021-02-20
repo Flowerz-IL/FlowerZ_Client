@@ -22,8 +22,20 @@
          <div class="form-group">
            <button (click)="updateName()" class="btn btn-success btn-lg btn-block">עדכן שם </button>
          </div>
+         
     <div class="error">
-        <h3>שים לב ! עדכון החשבון דורש התחברות מחדש</h3>
-
   </div>
+  <h2>עדכון ססמא</h2>
+  <div class="form-group">
+    <input type="text"  [(ngModel)]="userObj.userPassword" class="form-control" placeholder="ססמא">
+     </div>
+     
+     <div class="form-group">
+       <button (click)="updatePassword()" class="btn btn-success btn-lg btn-block">עדכן סיסמא </button>
+     </div>
+     
+<div class="error">
+</div>
+  <h3>שים לב ! עדכון החשבון דורש התחברות מחדש</h3>
+
   </div>
