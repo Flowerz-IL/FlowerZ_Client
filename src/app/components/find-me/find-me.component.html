@@ -23,7 +23,7 @@
 <div *ngIf="counter==1">
 
 
-    <div class="container" style="width: 30%;" >
+    <div class="container" style="width:30%;" >
         <h1>תחילה,בחר את סוג האירוע</h1>
         <p>אלה הם האירועים שאנו מתמחים בהם, הסר/י מה שלא רלוונטי בענייך</p>
         <ul class="w3-ul w3-card-4" >
@@ -86,7 +86,7 @@
 
 <div *ngIf="counter==2">
 <h1>מעולה, אשמח אם תגיד לי מהו המחיר שהיית מוכן להשקיע</h1>
-<mat-slider [(ngModel)]="rangeVal" thumbLabel max="400"></mat-slider>
+<mat-slider [(ngModel)]="rangeVal" thumbLabel max="1000"></mat-slider>
 
 <div><h1> {{rangeVal}}בשקלים, הייתי מוכן להוציא באיזור ה</h1></div>
 <button class="startBtn" (click)="onClick()">הבא</button>
@@ -138,11 +138,11 @@
     <h1> מצוין!! הנה מה שמצאתי שיכול להתאים לך, אם לא אהבת את ההצעות שלי, תרגיש חופשי ללכת לקטלוג שלנו לנסות בעצמך או לתת לי עוד הזדמנות</h1>
 
   </div>
-  <ul *ngFor="let d of filteredData"   style="display: inline-block;">
+  <ul *ngFor="let d of filteredData"   style="display: inline-block;margin-top: 5%;">
 
     <div class="w3-container" style="white-space: nowrap; display:inline-block;height: 400px;
     width: 280px;">    
-      <div class="w3-card-4" style="width:300px">
+      <div class="w3-card-4">
         <img src="{{d.bouquetImageUrl}}" alt="Alps" style="width:100%">
         <div class="w3-container w3-center">
           <p>{{d.bouquetName}}</p>

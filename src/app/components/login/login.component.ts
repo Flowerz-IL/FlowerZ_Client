@@ -4,6 +4,7 @@ import { UsersService } from '../../services/users.service'
 import { MatBottomSheet } from '@angular/material/bottom-sheet';
 import { UserCartComponent } from '../user-cart/user-cart.component';
 import { OrderHistoryComponent } from '../order-history/order-history.component';
+import {emailValidation, nameValidation, passwordValidation, phoneValidation} from '../../../config/validation/form.validation';
 
 @Component({
   selector: 'app-login',
@@ -42,6 +43,16 @@ export class LoginComponent implements OnInit {
 
 
   signIn() {
+    const emailV = emailValidation(this.userObj.userEmail);
+    if(!emailV.successful){
+      this.errorMessage = emailV.message;
+      return;
+    }
+    const passwordV=passwordValidation(this.userObj.userPassword);
+    if(!passwordV.successful){
+      this.errorMessage=passwordV.message;
+      return;
+    }
     this.UsersService.signIn(this.userObj);
     this.setUserName();
   }

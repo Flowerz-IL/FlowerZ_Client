@@ -5,6 +5,10 @@ import { Router } from '@angular/router';
 import { OrdersService } from 'src/app/services/orders.service';
 import { MatBottomSheet } from '@angular/material/bottom-sheet';
 import { ActionApproveComponent } from '../action-approve/action-approve.component';
+import {cityValidation, houseValidation, nameValidation, streetValidation} from '../../../config/validation/form.validation';
+
+
+
 @Component({
   selector: 'app-address-registeration',
   templateUrl: './address-registeration.component.html',
@@ -44,6 +48,26 @@ export class AddressRegisterationComponent implements OnInit {
   }
 
   addAddressAndBouquetToCart(){
+    const nameV=nameValidation(this.userAddress.name);
+    if(!nameV.successful){
+      this.errorMessage=nameV.message;
+      return;
+    }
+    const cityV=cityValidation(this.userAddress.city);
+    if(!cityV.successful){
+      this.errorMessage=cityV.message;
+      return;
+    }
+    const streetV=streetValidation(this.userAddress.street);
+    if(!streetV.successful){
+      this.errorMessage=streetV.message;
+      return;
+    }
+    const houseV=houseValidation(this.userAddress.houseNumber);
+    if(!houseV.successful){
+      this.errorMessage=houseV.message;
+      return;
+    }
     this.UsersService.addAddress(this.currentUserId,this.userAddress);
     this.OrderService.addOrderToCart(this.currentUserId,this.currentBouquetId,this.currentBouquetPrice,this.userAddress);
     this.openBottomSheet();

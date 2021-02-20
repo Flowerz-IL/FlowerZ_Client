@@ -19,3 +19,11 @@ h3{
 input{
     text-align: right;
 }
+.restricted{
+    color: red;
+}
+.error{
+    color: red;
+    text-align: center;
+
+}

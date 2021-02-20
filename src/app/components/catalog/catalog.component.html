@@ -18,6 +18,9 @@
     <ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel">
       <ngb-panel title="תוצאות חיפוש">
         <ng-template ngbPanelContent>
+          <div *ngIf="filteredData.length==0">
+            <h2> אין תוצאות לחיפוש</h2>
+          </div>
          <ul *ngFor="let d of filteredData" style="display: inline-block;">
           <div class="w3-container" style="display:inline-block;height: 400px; width: 280px;">    
             <div class="w3-card-8" style="width:200px; box-sizing: border-box;">

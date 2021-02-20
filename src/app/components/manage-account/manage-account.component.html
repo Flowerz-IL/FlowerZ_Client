@@ -1,41 +1,50 @@
-<h1>ניהול חשבון</h1>
-<h2>עדכון כתובת מייל</h2>
-<div class="container" style="max-width: 500px;">
-
-  
-    <div class="form-group">
-   <input type="text"  [(ngModel)]="userObj.userEmail" class="form-control" placeholder="אימייל">
-    </div>
-    
-    <div class="form-group">
-      <button (click)="updateEmail()" class="btn btn-success btn-lg btn-block">עדכן כתובת מייל</button>
-    </div>
-    <h2>עדכון שם</h2>
-
-    <div class="form-group">
-        <input type="text"  [(ngModel)]="userObj.userFirstName" class="form-control" placeholder="שם פרטי">
-         </div>
-         <div class="form-group">
-            <input type="text"  [(ngModel)]="userObj.userLastName" class="form-control" placeholder="שם משפחה">
-             </div>
-         
-         <div class="form-group">
-           <button (click)="updateName()" class="btn btn-success btn-lg btn-block">עדכן שם </button>
-         </div>
-         
-    <div class="error">
-  </div>
-  <h2>עדכון ססמא</h2>
-  <div class="form-group">
-    <input type="text"  [(ngModel)]="userObj.userPassword" class="form-control" placeholder="ססמא">
-     </div>
-     
-     <div class="form-group">
-       <button (click)="updatePassword()" class="btn btn-success btn-lg btn-block">עדכן סיסמא </button>
-     </div>
-     
-<div class="error">
+<div class="restricted" *ngIf="!loggedIn()">
+  <h1> עלייך להיות מחובר על מנת לצפות בתוכן זה</h1>
 </div>
-  <h3>שים לב ! עדכון החשבון דורש התחברות מחדש</h3>
-
+<div class="main" *ngIf="loggedIn()">
+  <h1>ניהול חשבון</h1>
+         
+  <div class="error">
+    {{errorMessage}}
   </div>
+
+  <h2>עדכון כתובת מייל</h2>
+  <div class="container" style="max-width: 500px;">
+  
+    
+      <div class="form-group">
+     <input type="text"  [(ngModel)]="userObj.userEmail" class="form-control" placeholder="אימייל">
+      </div>
+      
+      <div class="form-group">
+        <button (click)="updateEmail()" class="btn btn-success btn-lg btn-block">עדכן כתובת מייל</button>
+      </div>
+      <h2>עדכון שם</h2>
+  
+      <div class="form-group">
+          <input type="text"  [(ngModel)]="userObj.userFirstName" class="form-control" placeholder="שם פרטי">
+           </div>
+           <div class="form-group">
+              <input type="text"  [(ngModel)]="userObj.userLastName" class="form-control" placeholder="שם משפחה">
+               </div>
+           
+           <div class="form-group">
+             <button (click)="updateName()" class="btn btn-success btn-lg btn-block">עדכן שם </button>
+           </div>
+           
+      <div class="error">
+    </div>
+    <h2>עדכון ססמא</h2>
+    <div class="form-group">
+      <input type="text"  [(ngModel)]="userObj.userPassword" class="form-control" placeholder="ססמא">
+       </div>
+       
+       <div class="form-group">
+         <button (click)="updatePassword()" class="btn btn-success btn-lg btn-block">עדכן סיסמא </button>
+       </div>
+
+    <h3>שים לב ! עדכון החשבון דורש התחברות מחדש</h3>
+  
+    </div>
+  
+</div>

@@ -93,8 +93,16 @@ export class FindMeComponent implements OnInit  {
     this.data.forEach(element => {
       if(element.bouquetPrice<=this.rangeVal+50 && element.bouquetPrice>=this.rangeVal-50 )
       {
-    
-         if(element.bouquetColors[0]==this.selectedColor ||element.bouquetColors[1]==this.selectedColor|| element.bouquetColors[0]==this.selectedColor2 ||element.bouquetColors[1]==this.selectedColor2||element.bouquetColors[3]==this.selectedColor2 ||element.bouquetColors[3]==this.selectedColor)
+        if(this.selectedColor=="" && this.selectedColor2=="")
+        {
+          this.occasions.forEach(occasion => {
+            if(element.bouquetOccasionStyle==occasion)
+            {
+              this.filteredData.push(element);
+            }
+          });
+        }
+         if(element.bouquetColors[0]==this.selectedColor ||element.bouquetColors[1]==this.selectedColor|| element.bouquetColors[0]==this.selectedColor2 ||element.bouquetColors[1]==this.selectedColor2||element.bouquetColors[2]==this.selectedColor2 ||element.bouquetColors[2]==this.selectedColor)
         {
           this.occasions.forEach(occasion => {
             if(element.bouquetOccasionStyle==occasion)

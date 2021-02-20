@@ -17,6 +17,7 @@ const routes: Routes = [
 {path:'find-me',component:FindMeComponent},
 {path:'login',component:LoginComponent},
 {path:'home',component:HomeComponent},
+{path:'',component:HomeComponent},
 {path:'register',component:RegisterComponent},
 {path:'user-cart',component:UserCartComponent},
 {path:'about-us',component:AboutUsComponent},

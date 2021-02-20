@@ -20,11 +20,12 @@
           <div class="form-group">
             <input type="number" [(ngModel)]="userAddress.aptNumber"   class="form-control" placeholder="מספר דירה" required name="aptNumber">
           </div>
-          <button type="submit" (click)="addAddressAndBouquetToCart()" mat-raised-button color="accent">הוסף כתובת והוסף זר לסל</button>
-
-          <div class="error">
+          <div class="error" style="color: red;">
             {{errorMessage}}
         </div>
+          <button type="submit" (click)="addAddressAndBouquetToCart()" mat-raised-button color="accent">הוסף כתובת והוסף זר לסל</button>
+
+       
 
     </div>
 
